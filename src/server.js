@@ -3,21 +3,19 @@ const server = express()
 const routes = require("./routes")
 const path = require("path")
 
-//usando template engine
-server.set('view engine', 'ejs')
+// usando template engine
+server.set('view engine',  'ejs')
 
-//mudar a localização da pasta views 
-
+// Mudar a localização da pasta views
 server.set('views', path.join(__dirname, 'views'))
 
-//habilitar arquivos statics da pasta public
+//habilitar arquivos statics
 server.use(express.static("public"))
 
-// habilitar o uso do req.body
+// usar o req.body
 server.use(express.urlencoded({ extended: true }))
 
-//setado config para o server utilizar routes
+// routes
 server.use(routes)
 
-server.listen(3000, () => console.log('servidor rodando'))
-
+server.listen(3000, () => console.log('rodando'))
